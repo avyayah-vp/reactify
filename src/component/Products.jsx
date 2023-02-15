@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
+import { NavLink } from "react-router-dom";
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -53,10 +54,10 @@ const Products = () => {
       <>
         <div className="buttons d-flex justify-content-around mt-5 py-2">
           <button className="btn btn-outline-dark" onClick={() => setFilter(data)}>All</button>
-          <button className="btn btn-outline-dark" onClick={() => filterProduct("Men Clothes")}>Men Clothes</button>
-          <button className="btn btn-outline-dark" onClick={() => filterProduct("Women Clothes")}>Women Clothes</button>
+          <button className="btn btn-outline-dark" onClick={() => filterProduct("Clothes")}>Clothes</button>
+          <button className="btn btn-outline-dark" onClick={() => filterProduct("Electronics")}>Electronics</button>
           {/* <button className="btn btn-outline-dark" onClick={() => filterProduct("change title")}>Jewellery</button> */}
-          <button className="btn btn-outline-dark" onClick={() => filterProduct("Jonathan")}>Shoes</button>
+          <button className="btn btn-outline-dark" onClick={() => filterProduct("Shoes")}>Shoes</button>
           <button className="btn btn-outline-dark" onClick={() => filterProduct("Others")}>Others</button>
         </div>
         {filter.map((product) => {
@@ -74,9 +75,9 @@ const Products = () => {
                   <div className="card-body">
                     <h3 className="card-title mb-0 mt-2">{product.title}</h3>
                     <p className="card-text mt-2 fw-bolder">₹ {product.price}</p>
-                    <a href="#" className="btn btn-primary">
+                    <NavLink to={`/products/${product.id}`} className="btn btn-primary">
                       Buy Now
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
               </div>
